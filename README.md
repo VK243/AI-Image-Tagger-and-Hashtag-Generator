@@ -1,1 +1,1 @@
-# AI-Image-Tagger-and-Hashtag-Generator
+# AI Projects
