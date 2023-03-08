@@ -6,8 +6,7 @@ from itertools import cycle
 from tqdm import tqdm
 from PIL import Image
 import torch
-
-OPENAI_API_KEY = "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"
+import os
 
 # Object creation model, tokenizer and processor from HuggingFace
 processor = AutoProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -18,8 +17,8 @@ tokenizer = AutoTokenizer.from_pretrained("Salesforce/blip-image-captioning-base
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-#  
-openai.api_key = OPENAI_API_KEY
+# Getting the key from env
+openai.api_key = os.getenv('OPENAI_API_KEY')
 openai_model = "text-davinci-002" # OpenAI model 
 
 
