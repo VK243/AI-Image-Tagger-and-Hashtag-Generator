@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Getting the key from env
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = "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"
 openai_model = "text-davinci-002" # OpenAI model 
 
 
@@ -49,7 +49,7 @@ def caption_generator(des):
 def hashtag_generator(des):
     # Prompt
     hashtag_prompt = ('''Please generate ten relevant and accurate hashtags that will help the photo 
-    reach a larger audience on Instagram and Twitter for a photo that shows '''+des+'''. The hashtag
+    reach a larger audience on Instagram and Twitter for a photo that shows '''+ des +'''. The hashtag
     can be funny and creative. Please also provide in this format.
     Hashtags:
     #[Hashtag1]#[Hashtag2]#[Hashtag3]#[Hashtag4]#[Hashtag5]#[Hashtag6]#[Hashtag7]#[Hashtag8]#[Hashtag9]#[Hashtag10]
@@ -103,7 +103,7 @@ def prediction(img_list):
     
 def sample():
     # Sample Images in the 
-    sp_images = {'Sample 1':'image\beach.png','Sample 2':'image\coffee.png','Sample 3':'image\footballer.png','Sample 4':'image\prom.png'} 
+    sp_images = {'Sample 1':'image\\beach.png','Sample 2':'image\\coffee.png','Sample 3':'image\\footballer.png','Sample 4':'image\\prom.png'} 
     
     colms = cycle(st.columns(4)) # No of Columns 
     
@@ -124,7 +124,7 @@ def sample():
                 st.write(caption)
                 
             st.subheader("#Hashtags")
-            hashtags = hashtag_generator(description) # Function call to generate hashtag 
+            hashtags = hashtag_generator(description[0]) # Function call to generate hashtag 
             for hash in hashtags: # Present Hashtags
                 st.write(hash)
 
@@ -147,12 +147,12 @@ def upload():
                 st.write(caption)
                 
             st.subheader("Captions for this image are:")
-            captions = caption_generator(description) # Function call to generate caption
+            captions = caption_generator(description[0]) # Function call to generate caption
             for caption in captions: # Present Captions
                 st.write(caption)
                 
             st.subheader("#Hashtags")
-            hashtags = hashtag_generator(description) # Function call to generate hashtag
+            hashtags = hashtag_generator(description[0]) # Function call to generate hashtag
             for hash in hashtags: # Present Hashtags
                 st.write(hash)
 
@@ -170,10 +170,10 @@ def main():
     
     # Selection of Tabs
     with tab1: # Sample images tab
-        sample()
+        upload()
 
     with tab2: # Upload images tab
-        upload()
+        sample()
 
 
 
