@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Getting the key from env
-openai.api_key = "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"
+openai.api_key = "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"
 openai_model = "text-davinci-002" # OpenAI model 
 
 
@@ -52,7 +52,7 @@ def hashtag_generator(des):
     reach a larger audience on Instagram and Twitter for a photo that shows '''+ des +'''. The hashtag
     can be funny and creative. Please also provide in this format.
     Hashtags:
-    #[Hashtag1]#[Hashtag2]#[Hashtag3]#[Hashtag4]#[Hashtag5]#[Hashtag6]#[Hashtag7]#[Hashtag8]#[Hashtag9]#[Hashtag10]
+    #[Hashtag1] #[Hashtag2] #[Hashtag3] #[Hashtag4] #[Hashtag5] #[Hashtag6] #[Hashtag7] #[Hashtag8] #[Hashtag9] #[Hashtag10]
     ''')
     
     # Hashtag Generation
@@ -71,7 +71,7 @@ def hashtag_generator(des):
 
 def prediction(img_list):
     
-    max_length = 16
+    max_length = 30
     num_beams = 4
     gen_kwargs = {"max_length": max_length, "num_beams": num_beams}
     
@@ -162,8 +162,6 @@ def main():
     st.set_page_config(page_title="Caption and Hashtag generation") 
     # Title of the page
     st.title("Get Captions and Hashtags for your Image")
-    # Sub-title of the page
-    st.subheader('By Varshith Kumar')
     
     # Tabs on the page 
     tab1, tab2= st.tabs(["Upload Image", "Sample"])
@@ -174,6 +172,9 @@ def main():
 
     with tab2: # Upload images tab
         sample()
+        
+    # Sub-title of the page
+    st.subheader('By Varshith Kumar')
 
 
 
