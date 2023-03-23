@@ -9,6 +9,7 @@ Project titles:
 2. Spam_Classifier
 3. Caption and Hashtag generation for Image
 4. MNIST (CNN and LogisticRegression)
-5. (working on...)
+5. OCR
+6. (working on...)
 
 This repository will be updated on my every advancement.
