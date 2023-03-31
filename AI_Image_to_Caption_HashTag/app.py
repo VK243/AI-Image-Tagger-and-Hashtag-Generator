@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Getting the key from env
-openai.api_key = "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"
+openai.api_key = "" ## you Openai key
 openai_model = "text-davinci-002" # OpenAI model 
 
 
